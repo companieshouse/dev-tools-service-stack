@@ -16,10 +16,10 @@
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_ecs-cluster"></a> [ecs-cluster](#module\_ecs-cluster) | git@github.com:companieshouse/terraform-modules//aws/ecs/ecs-cluster | 1.0.231 |
-| <a name="module_test-utility-alb"></a> [test-utility-alb](#module\_test-utility-alb) | git@github.com:companieshouse/terraform-modules//aws/application_load_balancer | 1.0.345 |
+| Name                                                                     | Source | Version |
+|--------------------------------------------------------------------------|--------|---------|
+| <a name="module_ecs-cluster"></a> [ecs-cluster](#module\_ecs-cluster)    | git@github.com:companieshouse/terraform-modules//aws/ecs/ecs-cluster | 1.0.231 |
+| <a name="module_dev-tool-alb"></a> [dev-tool-alb](#module\_dev-tool-alb) | git@github.com:companieshouse/terraform-modules//aws/application_load_balancer | 1.0.345 |
 
 ## Resources
 
@@ -35,27 +35,27 @@
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| Name                                                                                                                   | Description                                                                                                                  | Type | Default | Required |
+|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|------|---------|:--------:|
 | <a name="input_asg_desired_instance_count"></a> [asg\_desired\_instance\_count](#input\_asg\_desired\_instance\_count) | The desired number of instances in the autoscaling group for the cluster. Must fall within the min/max instance count range. | `number` | `1` | no |
-| <a name="input_asg_max_instance_count"></a> [asg\_max\_instance\_count](#input\_asg\_max\_instance\_count) | The maximum allowed number of instances in the autoscaling group for the cluster. | `number` | `1` | no |
-| <a name="input_asg_min_instance_count"></a> [asg\_min\_instance\_count](#input\_asg\_min\_instance\_count) | The minimum allowed number of instances in the autoscaling group for the cluster. | `number` | `1` | no |
-| <a name="input_asg_scaledown_schedule"></a> [asg\_scaledown\_schedule](#input\_asg\_scaledown\_schedule) | The schedule to use when scaling down the number of EC2 instances to zero. | `string` | `""` | no |
-| <a name="input_asg_scaleup_schedule"></a> [asg\_scaleup\_schedule](#input\_asg\_scaleup\_schedule) | The schedule to use when scaling up the number of EC2 instances to their normal desired level. | `string` | `""` | no |
-| <a name="input_aws_profile"></a> [aws\_profile](#input\_aws\_profile) | The AWS profile to use for deployment. | `string` | `"development-eu-west-2"` | no |
-| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region for deployment. | `string` | `"eu-west-2"` | no |
-| <a name="input_cert_domain"></a> [cert\_domain](#input\_cert\_domain) | The certificate domain to use. | `string` | n/a | yes |
-| <a name="input_create_route53_aliases"></a> [create\_route53\_aliases](#input\_create\_route53\_aliases) | Whether to create Route53 aliases pointing to the ALB | `bool` | `false` | no |
-| <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | Domain name | `string` | n/a | yes |
-| <a name="input_ec2_image_id"></a> [ec2\_image\_id](#input\_ec2\_image\_id) | The machine image name for the ECS cluster launch configuration. | `string` | `"ami-04018f95156d810bc"` | no |
-| <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type) | The instance type for ec2 instances in the clusters. | `string` | `"t3.medium"` | no |
-| <a name="input_ec2_key_pair_name"></a> [ec2\_key\_pair\_name](#input\_ec2\_key\_pair\_name) | The key pair for SSH access to ec2 instances in the clusters. | `string` | n/a | yes |
-| <a name="input_enable_asg_autoscaling"></a> [enable\_asg\_autoscaling](#input\_enable\_asg\_autoscaling) | Whether to enable auto-scaling of the ASG by creating a capacity provider for the ECS cluster. | `bool` | `true` | no |
-| <a name="input_enable_container_insights"></a> [enable\_container\_insights](#input\_enable\_container\_insights) | A boolean value indicating whether to enable Container Insights or not | `bool` | `true` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment name, defined in envrionments vars. | `string` | n/a | yes |
-| <a name="input_hashicorp_vault_password"></a> [hashicorp\_vault\_password](#input\_hashicorp\_vault\_password) | The password used when retrieving configuration from Hashicorp Vault | `string` | n/a | yes |
-| <a name="input_hashicorp_vault_username"></a> [hashicorp\_vault\_username](#input\_hashicorp\_vault\_username) | The username used when retrieving configuration from Hashicorp Vault | `string` | n/a | yes |
-| <a name="input_route53_aliases_test_utility"></a> [route53\_aliases\_test\_utility](#input\_route53\_aliases\_test\_utility) | The Route53 aliases to create for test-utility lb . | `list(string)` | `[]` | no |
+| <a name="input_asg_max_instance_count"></a> [asg\_max\_instance\_count](#input\_asg\_max\_instance\_count)             | The maximum allowed number of instances in the autoscaling group for the cluster.                                            | `number` | `1` | no |
+| <a name="input_asg_min_instance_count"></a> [asg\_min\_instance\_count](#input\_asg\_min\_instance\_count)             | The minimum allowed number of instances in the autoscaling group for the cluster.                                            | `number` | `1` | no |
+| <a name="input_asg_scaledown_schedule"></a> [asg\_scaledown\_schedule](#input\_asg\_scaledown\_schedule)               | The schedule to use when scaling down the number of EC2 instances to zero.                                                   | `string` | `""` | no |
+| <a name="input_asg_scaleup_schedule"></a> [asg\_scaleup\_schedule](#input\_asg\_scaleup\_schedule)                     | The schedule to use when scaling up the number of EC2 instances to their normal desired level.                               | `string` | `""` | no |
+| <a name="input_aws_profile"></a> [aws\_profile](#input\_aws\_profile)                                                  | The AWS profile to use for deployment.                                                                                       | `string` | `"development-eu-west-2"` | no |
+| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region)                                                     | The AWS region for deployment.                                                                                               | `string` | `"eu-west-2"` | no |
+| <a name="input_cert_domain"></a> [cert\_domain](#input\_cert\_domain)                                                  | The certificate domain to use.                                                                                               | `string` | n/a | yes |
+| <a name="input_create_route53_aliases"></a> [create\_route53\_aliases](#input\_create\_route53\_aliases)               | Whether to create Route53 aliases pointing to the ALB                                                                        | `bool` | `false` | no |
+| <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name)                                                  | Domain name                                                                                                                  | `string` | n/a | yes |
+| <a name="input_ec2_image_id"></a> [ec2\_image\_id](#input\_ec2\_image\_id)                                             | The machine image name for the ECS cluster launch configuration.                                                             | `string` | `"ami-04018f95156d810bc"` | no |
+| <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type)                              | The instance type for ec2 instances in the clusters.                                                                         | `string` | `"t3.medium"` | no |
+| <a name="input_ec2_key_pair_name"></a> [ec2\_key\_pair\_name](#input\_ec2\_key\_pair\_name)                            | The key pair for SSH access to ec2 instances in the clusters.                                                                | `string` | n/a | yes |
+| <a name="input_enable_asg_autoscaling"></a> [enable\_asg\_autoscaling](#input\_enable\_asg\_autoscaling)               | Whether to enable auto-scaling of the ASG by creating a capacity provider for the ECS cluster.                               | `bool` | `true` | no |
+| <a name="input_enable_container_insights"></a> [enable\_container\_insights](#input\_enable\_container\_insights)      | A boolean value indicating whether to enable Container Insights or not                                                       | `bool` | `true` | no |
+| <a name="input_environment"></a> [environment](#input\_environment)                                                    | The environment name, defined in envrionments vars.                                                                          | `string` | n/a | yes |
+| <a name="input_hashicorp_vault_password"></a> [hashicorp\_vault\_password](#input\_hashicorp\_vault\_password)         | The password used when retrieving configuration from Hashicorp Vault                                                         | `string` | n/a | yes |
+| <a name="input_hashicorp_vault_username"></a> [hashicorp\_vault\_username](#input\_hashicorp\_vault\_username)         | The username used when retrieving configuration from Hashicorp Vault                                                         | `string` | n/a | yes |
+| <a name="input_route53_aliases_dev_tools"></a> [route53\_aliases\_dev\_tool](#input\_route53\_aliases\_dev\_tool)      | The Route53 aliases to create for dev-tool lb .                                                                              | `list(string)` | `[]` | no |
 
 ## Outputs
 

@@ -83,9 +83,9 @@ variable "create_route53_aliases" {
   type        = bool
 }
 
-variable "route53_aliases_test_utility" {
+variable "route53_aliases_dev_tools" {
   type        = list(string)
-  description = "The Route53 aliases to create for test-utility lb ."
+  description = "The Route53 aliases to create for dev-tools lb ."
   default     = []
 }
 

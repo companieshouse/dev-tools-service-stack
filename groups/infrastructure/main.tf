@@ -57,7 +57,7 @@ module "dev-tools-alb" {
   internal                = var.create_internal_alb
   redirect_http_to_https  = true
   route53_domain_name     = var.domain_name
-  route53_aliases         = var.route53_aliases_test_utility
+  route53_aliases         = var.route53_aliases_dev_tools
   create_route53_aliases  = var.create_route53_aliases
   service_configuration = {
     listener_config = {
